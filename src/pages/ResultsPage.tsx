@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import Button from '../components/StyleButton';
 
 const ResultsPage = () => {
   const { state } = useLocation();
@@ -6,17 +7,17 @@ const ResultsPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="results-page flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+    <div className="results-page">
       <h1 className="text-3xl font-bold">Quiz Results</h1>
       <p className="text-lg mt-2">
         You scored {score} out of {total}!
       </p>
-      <button
+      <Button
         onClick={() => navigate('/')}
-        className="mt-4 bg-red-600 hover:bg-red-500 transition text-white py-2 px-6 rounded-lg text-lg"
+        color={score === total ? 'green' : 'red'}
       >
-        Try Again
-      </button>
+        {score === total ? 'Play Again' : 'Try Again'}
+      </Button>
     </div>
   );
 };

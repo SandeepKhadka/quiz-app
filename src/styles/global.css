@@ -24,5 +24,30 @@
 }
 
 .results-page {
-  @apply flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white;
+  @apply flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white gap-2;
+}
+
+.attempt-container {
+  @apply w-full max-w-lg bg-gray-800 p-4 rounded-lg mb-4 relative;
+}
+
+/* Styling for the container of the attempts section */
+.delete-all-button-container {
+  @apply absolute right-0;
+}
+
+.attempt-container {
+  @apply w-full max-w-lg bg-gray-800 p-4 rounded-lg mb-4 relative;
+}
+
+.attempt-container h2 {
+  @apply text-xl font-bold mb-2;
+}
+
+.attempt-container ul {
+  @apply list-disc pl-5;
+}
+
+.attempt-container p {
+  @apply text-gray-400;
 }
