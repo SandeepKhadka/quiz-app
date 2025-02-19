@@ -1,12 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
-interface LocationState {
-  score: number;
-  total: number;
-}
-
 const ResultsPage = () => {
-  const { state } = useLocation<LocationState>();
+  const { state } = useLocation();
   const { score, total } = state || { score: 0, total: 0 };
   const navigate = useNavigate();
 
