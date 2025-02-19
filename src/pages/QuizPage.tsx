@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import Timer from '../components/Timer';
 import QuizCard from '../components/QuizCard';
 

@@ -1,4 +1,3 @@
-// src/components/QuizCard.tsx
 import React from 'react';
 
 interface QuizCardProps {
