@@ -1,8 +1,11 @@
 /** @type {import('tailwindcss').Config} */
+import colors from './colors';
+import fontSize from './fontSize';
+
 export default {
-  content: ['./src/**/*.{html,js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: { colors, fontSize },
   },
   plugins: [],
 };

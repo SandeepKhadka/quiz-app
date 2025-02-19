@@ -32,9 +32,7 @@
 }
 
 /* Styling for the container of the attempts section */
-.delete-all-button-container {
-  @apply absolute right-0;
-}
+
 
 .attempt-container {
   @apply w-full max-w-lg bg-gray-800 p-4 rounded-lg mb-4 relative;

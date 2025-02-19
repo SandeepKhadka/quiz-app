@@ -19,7 +19,7 @@ const QuizCard = ({
   instantFeedback,
   type = 'multiple-choice',
 }: QuizCardProps) => {
-  const [clickedOption, setClickedOption] = useState<string | null>(null);
+  const [clickedOption, setClickedOption] = useState<string>();
   const [userInput, setUserInput] = useState<string>('');
 
   const handleClick = (answer: string) => {
