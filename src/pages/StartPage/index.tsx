@@ -12,6 +12,8 @@ const StartPage = () => {
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
           Welcome to the Quiz!
         </h1>
+
+        {/* Uses centralized route configuration for maintainability */}
         <Link to={ROUTES.QUIZ}>
           <Button className="sm:w-auto px-6 py-3 text-lg sm:text-xl">
             Start Quiz

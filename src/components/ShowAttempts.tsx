@@ -14,12 +14,14 @@ const Attempt = () => {
   const [attempts, setAttempts] = useState<AttemptMetaData[]>([]);
   const [showAttempts, setShowAttempts] = useState(false);
 
-  // Function to load attempts from IndexedDB
+  // Asynchronously load quiz attempts from IndexedDB and update local state
   const loadAttempts = async () => {
     const allAttempts = await getAttempts();
     setAttempts(allAttempts);
   };
 
+  // Asynchronously delete all quiz attempts from IndexedDB,
+  // clear the local attempts state, and show a success toast notification
   const handleDeleteAllAttempts = async () => {
     await deleteAttempts();
     setAttempts([]);
@@ -66,12 +68,6 @@ const Attempt = () => {
                       Attempt {index + 1}: {attempt.score} / {attempt.total} on{' '}
                       {new Date(attempt.timestamp).toLocaleString()}
                     </span>
-                    <Button
-                      variant="info"
-                      className="text-xs sm:text-sm py-1 px-2"
-                    >
-                      Review
-                    </Button>
                   </li>
                 ))}
               </ul>

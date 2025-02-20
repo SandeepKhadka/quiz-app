@@ -13,10 +13,11 @@ type Question = {
   question: string;
   options?: string[];
   correctAnswer: string;
-  type?: 'multiple-choice' | 'integer';
+  type?: 'multiple-choice' | 'integer'; // Determines question rendering format
 };
 
 const QuizPage = () => {
+  // State declarations and hook initialization
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
@@ -32,11 +33,12 @@ const QuizPage = () => {
     setQuestions(allQuestions);
   }, [allQuestions]);
 
+  // Answer handling logic
   const handleAnswer = (answer: string | null) => {
     setSelectedAnswer(answer);
     const current = questions[currentQuestionIndex];
 
-    // Convert integer answer for comparison
+    // Determine if the answer is correct, considering type conversion for integers
     const isCorrect =
       current.type === 'integer'
         ? Number(answer) === Number(current.correctAnswer)

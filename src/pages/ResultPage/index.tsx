@@ -8,6 +8,8 @@ const ResultsPage = () => {
 
   const navigate = useNavigate();
 
+  // Extract quiz results from the location state,
+  // falling back to default values (score: 0, total: 0) if state is undefined.
   const { score, total } = state || { score: 0, total: 0 };
 
   return (
@@ -16,6 +18,11 @@ const ResultsPage = () => {
       <p className="text-lg mt-2">
         You scored {score} out of {total}!
       </p>
+
+      {/*Render the result button with dynamic properties:
+      -The button's variant is 'success' if the user scored full marks; otherwise, it's 'danger'.
+      -The button's text also changes accordingly. */}
+
       <Button
         onClick={() => navigate(ROUTES.HOME)}
         variant={score === total ? 'success' : 'danger'}

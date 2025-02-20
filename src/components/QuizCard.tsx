@@ -23,13 +23,18 @@ const QuizCard = ({
   const [clickedOption, setClickedOption] = useState<string>();
   const [userInput, setUserInput] = useState<string>('');
 
+  // Handles answer submission for both multiple-choice and integer type questions
   const handleClick = (answer: string) => {
+    // For integer questions, ensure the input is not empty before proceeding
     if (type === 'integer' && !userInput.trim()) {
       toast.error("This field can't be empty");
       return;
     }
+    // Record the clicked option for visual feedback
     setClickedOption(answer);
+    // Invoke the parent callback with the selected answer
     onAnswer(answer);
+    // Clear the input field after submission (important for integer type)
     setUserInput('');
   };
 

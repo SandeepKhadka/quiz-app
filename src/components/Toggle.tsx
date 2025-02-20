@@ -7,6 +7,7 @@ interface ToggleProps {
 const Toggle = ({ isChecked, onToggle, label }: ToggleProps) => {
   return (
     <div className="flex items-center gap-3">
+      {/* Conditionally render the label if provided */}
       {label && <label className="text-lg">{label}</label>}
       <button
         onClick={onToggle}

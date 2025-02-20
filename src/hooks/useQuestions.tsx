@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 
 export type Question = {
   question: string;
-  options?: string[];
+  options?: string[]; // Optional for integer-type questions
   correctAnswer: string;
-  type: 'multiple-choice' | 'integer';
+  type: 'multiple-choice' | 'integer'; // Determines question rendering format
 };
 
+// Static question data for the quiz
 const quizQuestions: Question[] = [
   {
     question: 'Which planet is closest to the Sun?',
@@ -69,13 +70,14 @@ const quizQuestions: Question[] = [
   },
 ];
 
-// Custom Hook
 const useQuestions = () => {
   const [allQuestions, setAllQuestions] = useState<Question[]>([]);
 
   useEffect(() => {
+    // Initialize questions with static data using useEffect to allow for
+    // potential future migration to API data fetching without state structure changes
     setAllQuestions(quizQuestions);
-  }, []);
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   return { allQuestions };
 };
