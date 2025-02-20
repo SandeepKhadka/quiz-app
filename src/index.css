@@ -1,1 +1,61 @@
 @import './styles/global.css';
+
+@layer base {
+    :root {
+      --highlight-white: 0, 0%, 100%;
+      --highlight-surface: 220, 60%, 99%;
+      --highlight-bg: 0, 0%, 99%;
+      --highlight-hover: 0, 0%, 96%;
+      --highlight-border: 0, 0%, 93%;
+  
+      --primary-15: 0, 0%, 91%;
+      --primary-30: 0, 0%, 69%;
+      --primary-45: 0, 0%, 43%;
+      --primary-60: 0, 0%, 31%;
+      --primary-75: 0, 0%, 20%;
+      --primary-90: 0, 0%, 10%;
+  
+      --secondary-15: 180, 18%, 97%;
+      --secondary-30: 189, 23%, 94%;
+      --secondary-45: 198, 18%, 82%;
+      --secondary-60: 208, 18%, 67%;
+      --secondary-75: 213, 16%, 59%;
+      --secondary-90: 214, 12%, 54%;
+  
+      --informative-15: 218, 100%, 96%;
+      --informative-30: 221, 100%, 93%;
+      --informative-45: 223, 100%, 81%;
+      --informative-60: 228, 100%, 73%;
+      --informative-75: 233, 100%, 63%;
+      --informative-90: 237, 91%, 59%;
+  
+      --positive-15: 147, 65%, 97%;
+      --positive-30: 145, 61%, 85%;
+      --positive-45: 145, 54%, 58%;
+      --positive-60: 146, 55%, 49%;
+      --positive-75: 146, 59%, 36%;
+      --positive-90: 146, 56%, 29%;
+  
+      --notice-15: 37, 100%, 96%;
+      --notice-30: 37, 100%, 92%;
+      --notice-45: 34, 99%, 72%;
+      --notice-60: 30, 97%, 57%;
+      --notice-75: 28, 96%, 53%;
+      --notice-90: 24, 91%, 48%;
+  
+      --negative-15: 0, 100%, 97%;
+      --negative-30: 358, 100%, 94%;
+      --negative-45: 358, 100%, 81%;
+      --negative-60: 358, 100%, 71%;
+      --negative-75: 358, 93%, 60%;
+      --negative-90: 359, 80%, 51%;
+  
+      --sidebar-background: 0 0% 98%;
+      --sidebar-accent: 240 4.8% 95.9%;
+      --sidebar-accent-foreground: 240 5.9% 10%;
+      --sidebar-border: 220 13% 91%;
+      --sidebar-ring: 217.2 91.2% 59.8%;
+  
+      --skeleton-dark: 0 0% 98%;
+      --skeleton-light: 0 0% 94%;
+    }}

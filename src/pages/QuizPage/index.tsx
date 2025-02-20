@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
+import useQuestions from '@/hooks/useQuestions';
+import { addAttempt } from '@/utils/db';
+import Timer from '@/components/Timer';
+import Toggle from '@/components/Toggle';
+import QuizCard from '@/components/QuizCard';
+import { ROUTES } from '@/utils/routes';
 
-import Timer from '../components/Timer';
-import QuizCard from '../components/QuizCard';
-import Toggle from '../components/Toggle';
-import { addAttempt, deleteAttempts, getAttempts } from '../utils/db';
-import Button from '../components/StyleButton';
-import useQuestions from '../hooks/useQuestions';
-import ShowAttempts from '../components/ShowAttempts'; // Import the ShowAttempts component
+// Import the ShowAttempts component
 
 type Question = {
   question: string;
@@ -26,29 +26,13 @@ const QuizPage = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [timerKey, setTimerKey] = useState<number>(0); // Used to reset the Timer
 
-  const [attempts, setAttempts] = useState<
-    { id?: number; score: number; total: number; timestamp: number }[]
-  >([]);
-  const [showAttempts, setShowAttempts] = useState<boolean>(false);
-
   const navigate = useNavigate();
+
   const { allQuestions } = useQuestions();
 
   useEffect(() => {
     setQuestions(allQuestions);
   }, [allQuestions]);
-
-  // Function to load attempts from IndexedDB
-  const loadAttempts = async () => {
-    const allAttempts = await getAttempts();
-    setAttempts(allAttempts);
-  };
-
-  const handleDeleteAllAttempts = async () => {
-    await deleteAttempts(); // This deletes attempts from IndexedDB
-    setAttempts([]); // Clear the attempts in the state
-    toast.success('All attempts deleted successfully!');
-  };
 
   const handleAnswer = (answer: string | null) => {
     setSelectedAnswer(answer);
@@ -70,7 +54,7 @@ const QuizPage = () => {
             setTimerKey((prev) => prev + 1);
           } else {
             await addAttempt(score + 1, questions.length);
-            navigate('/results', {
+            navigate(ROUTES.RESULT, {
               state: { score: score + 1, total: questions.length },
             });
           }
@@ -89,7 +73,7 @@ const QuizPage = () => {
             setTimerKey((prev) => prev + 1);
           } else {
             await addAttempt(score, questions.length);
-            navigate('/results', {
+            navigate(ROUTES.RESULT, {
               state: { score: score, total: questions.length },
             });
           }
@@ -112,24 +96,6 @@ const QuizPage = () => {
       </div>
 
       {/* Attempts Button */}
-      <div className="w-full max-w-lg flex justify-between items-center mb-4">
-        <Button
-          onClick={async () => {
-            if (!showAttempts) await loadAttempts();
-            setShowAttempts((prev) => !prev);
-          }}
-          color="blue"
-        >
-          {showAttempts ? 'Hide My Attempts' : 'Show My Attempts'}
-        </Button>
-      </div>
-
-      {/* ShowAttempts Component */}
-      <ShowAttempts
-        attempts={attempts}
-        showAttempts={showAttempts}
-        onDeleteAll={handleDeleteAllAttempts}
-      />
 
       <Toggle
         label="Get Instant Feedback"

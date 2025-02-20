@@ -1,16 +1,17 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import StartPage from './pages/StartPage';
-import QuizPage from './pages/QuizPage';
-import ResultsPage from './pages/ResultsPage';
 
-const App: React.FC = () => {
+import StartPage from '@/pages/StartPage';
+import QuizPage from '@/pages/QuizPage';
+import ResultsPage from '@/pages/ResultPage';
+import { ROUTES } from '@/utils/routes';
+
+const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<StartPage />} />
-        <Route path="/quiz" element={<QuizPage />} />
-        <Route path="/results" element={<ResultsPage />} />
+        <Route path={ROUTES.HOME} element={<StartPage />} />
+        <Route path={ROUTES.QUIZ} element={<QuizPage />} />
+        <Route path={ROUTES.RESULT} element={<ResultsPage />} />
       </Routes>
     </Router>
   );

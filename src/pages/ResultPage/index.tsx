@@ -1,10 +1,14 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import Button from '../components/StyleButton';
+
+import Button from '@/components/Button';
+import { ROUTES } from '@/utils/routes';
 
 const ResultsPage = () => {
   const { state } = useLocation();
-  const { score, total } = state || { score: 0, total: 0 };
+
   const navigate = useNavigate();
+
+  const { score, total } = state || { score: 0, total: 0 };
 
   return (
     <div className="results-page">
@@ -13,8 +17,8 @@ const ResultsPage = () => {
         You scored {score} out of {total}!
       </p>
       <Button
-        onClick={() => navigate('/')}
-        color={score === total ? 'green' : 'red'}
+        onClick={() => navigate(ROUTES.HOME)}
+        variant={score === total ? 'success' : 'danger'}
       >
         {score === total ? 'Play Again' : 'Try Again'}
       </Button>
