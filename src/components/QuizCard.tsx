@@ -2,12 +2,12 @@ import { useState } from 'react';
 
 interface QuizCardProps {
   question: string;
-  options?: string[]; // Optional for integer-type questions
+  options?: string[];
   onAnswer: (answer: string) => void;
   selectedAnswer?: string | null;
   correctAnswer?: string;
   instantFeedback?: boolean;
-  type?: 'multiple-choice' | 'integer'; // New prop to differentiate question types
+  type?: 'multiple-choice' | 'integer';
 }
 
 const QuizCard = ({

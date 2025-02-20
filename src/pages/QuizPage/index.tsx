@@ -9,8 +9,6 @@ import Toggle from '@/components/Toggle';
 import QuizCard from '@/components/QuizCard';
 import { ROUTES } from '@/utils/routes';
 
-// Import the ShowAttempts component
-
 type Question = {
   question: string;
   options?: string[];
