@@ -29,7 +29,7 @@ A web-based interactive quiz application that allows users to take quizzes, trac
 ## Deployment
 
 The app is deployed at:
-[Live Demo](https://your-deployed-app-link.com)
+[Live Demo](https://quiz-app-flame-nine.vercel.app/)
 
 ## Technologies Used
 
