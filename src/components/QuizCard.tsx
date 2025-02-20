@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 interface QuizCardProps {
   question: string;
@@ -23,6 +24,10 @@ const QuizCard = ({
   const [userInput, setUserInput] = useState<string>('');
 
   const handleClick = (answer: string) => {
+    if (type === 'integer' && !userInput.trim()) {
+      toast.error("This field can't be empty");
+      return;
+    }
     setClickedOption(answer);
     onAnswer(answer);
     setUserInput('');
@@ -60,6 +65,7 @@ const QuizCard = ({
             onChange={(e) => setUserInput(e.target.value)}
             className="p-2 rounded-lg w-full text-black"
             placeholder="Type your answer..."
+            required
           />
           <button
             onClick={() => handleClick(userInput)}

@@ -82,7 +82,6 @@ const QuizPage = () => {
 
   return (
     <div className="quiz-page min-h-screen bg-gray-900 text-white flex flex-col items-center p-6 relative">
-      {/* Toast Container */}
       <ToastContainer position="top-center" autoClose={3000} />
 
       <div className="absolute top-4 right-4">
@@ -92,8 +91,6 @@ const QuizPage = () => {
           onTimeUp={() => handleAnswer('')}
         />
       </div>
-
-      {/* Attempts Button */}
 
       <Toggle
         label="Get Instant Feedback"
